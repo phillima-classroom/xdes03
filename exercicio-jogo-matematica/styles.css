@@ -51,13 +51,6 @@ button{
     height: 2rem;
 }
 
-.respCerta{
-    color:green;
-}
-
-.respErrada{
-    color: red;
-}
 label{
     font-size: 1.4rem;
 }
