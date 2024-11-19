@@ -4,13 +4,13 @@
     border: 1px solid black;
     border-radius: 2rem;
     width: 35%;
-    margin: 3% auto;
+    margin: 2% auto;
     align-items: center;
     justify-content: space-between;
     height: 40vh;
     gap: 4%;
-    padding-top: 2%;
-    padding-bottom: 1%;
+    padding-top: 1%;
+    padding-bottom: 0.5%;
     div{
         text-align: center;
     }
@@ -19,7 +19,7 @@
         width: 40%;
         border-radius: 1rem;
         background-color: rgb(138, 138, 249);
-        color: white;
+        color: rgb(255, 255, 255);
         height: 4vh;
     }
 }
@@ -58,4 +58,8 @@
     width: 35%;
     height: auto;
 
+}
+
+#link-cadastrar{
+    color: black;
 }
