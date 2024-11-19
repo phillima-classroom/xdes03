@@ -1,0 +1,15 @@
+.footer-images{
+    width: 100%;
+    display: flex;
+    .img-footer{
+        width: 1%;
+        height: auto;
+        flex: 1;
+    }
+}
+
+.footer{
+    position:absolute;
+        width:100%;
+        bottom:0px;
+}

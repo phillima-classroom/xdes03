@@ -2,8 +2,60 @@
     display: flex;
     flex-direction: column;
     border: 1px solid black;
-    width: 50%;
-    margin: 0 auto;
+    border-radius: 2rem;
+    width: 35%;
+    margin: 3% auto;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    height: 40vh;
+    gap: 4%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    div{
+        text-align: center;
+    }
+
+    button{
+        width: 40%;
+        border-radius: 1rem;
+        background-color: rgb(138, 138, 249);
+        color: white;
+        height: 4vh;
+    }
+}
+
+.user-input{
+    display: flex;
+    border-bottom: 1px solid gray;
+    padding-bottom: 1%;
+    width: 90%;
+    gap: 1%;
+    margin: 4% auto;
+
+    input{
+        border: none;
+        width: 80%;
+        padding-left: 1rem;
+        background-color: aliceblue;
+    }
+
+    input:focus{
+        outline: none;
+    }
+
+    img{
+        width: 10%;
+        height: auto;
+    }
+
+}
+
+.user-input:focus-within{
+    border-bottom: 1.9px solid rgb(73, 72, 72);
+}
+
+.form-image{
+    width: 35%;
+    height: auto;
+
 }
