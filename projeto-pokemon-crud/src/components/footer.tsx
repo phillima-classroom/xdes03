@@ -8,7 +8,7 @@ import Image from 'next/image';
 import "@/styles/Footer.css";
 export default function Footer(){
     return(
-        <section className='footer'>
+        <footer className='footer'>
             <section className='footer-images'>
                 <Image className='img-footer' src={bulbasaur} alt='O bulbasaur'/>
                 <Image className='img-footer' src={charmander} alt='O charmander'/>
@@ -16,9 +16,9 @@ export default function Footer(){
                 <Image className='img-footer' src={pikachu} alt='O pikachu'/>
                 <Image className='img-footer' src={mew} alt='O mew'/>
             </section>
-            <footer>
+            <section>
                 <p style={{textAlign: "center"}}>Feito com 🎮 por <a href="https://www.github.com/phillima" target='_blank'>philcisco</a></p>
-            </footer>
-        </section>
+            </section>
+        </footer>
     );
 }

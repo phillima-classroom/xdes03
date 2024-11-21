@@ -57,9 +57,9 @@ export default async function Edit(props: EditPokemonProps){
 
     return(
         <div className='create-pokemon-container'>
-            <h3>
+            <h2>
                 Editar Pokemon {pokemon.nome}
-            </h3>
+            </h2>
             <Image src={pokemon.img}
                    alt=""
                    width={100}

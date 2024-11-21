@@ -35,9 +35,9 @@ export default async function CreatePokemon(){
 
     return(
         <div className="create-pokemon-container">
-            <h3>
+            <h2>
                 Inserir Novo Pokémon
-            </h3> 
+            </h2> 
             <form action={addPokemon} className="create-pokemon-form">
                 <section className="pokemon-input">
                     <input type="text"

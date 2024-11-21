@@ -7,12 +7,12 @@
     box-shadow: 0.1rem 0.1rem 0.2rem rgb(150, 191, 191);
     flex: 0 300px;
     height: max-content;
-    h3{
-        font-size: 3rem;
+    h2{
+        font-size: 2rem;
     }
 
     p{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin: 5%;
     }
     
@@ -33,10 +33,10 @@
 
     form > button, .edit-pokemon{
         padding: 0;
+        border: none;
         border-radius: 1rem;
         color: white;
         text-align: center;
-        border-color: 1px solid black;
         font-size: 1.5rem;
         margin: 1%;
     }

@@ -43,7 +43,7 @@ export default async function PokemonFav(props: PokemonFavProps){
 
     return(
         <div className="pokemon-container-card">
-            <h3>{props.nome}</h3>
+            <h2>{props.nome}</h2>
             <Image src={props.img}
                    alt=""
                    width={200}

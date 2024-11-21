@@ -4,7 +4,7 @@
     width: 60%;
     margin: 2% auto;
     overflow-y: auto;
-    height: 45vh;
+    height: calc(100vh - 45vh);
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
@@ -20,7 +20,7 @@
 
 .add-pokemon{
     color: black;
-    font-size: 2rem;
+    font-size: 100%;
     background-color: rgb(138, 138, 249);
     border-radius: 1rem;
     width: max-content;
