@@ -1,0 +1,26 @@
+[
+  {
+    "id": "7842f630-c92b-43be-b1fd-0df8db7a632a",
+    "nome": "Venusaur",
+    "descricao": "Pokémon de Planta",
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wikidexcdn.net%2Fmwuploads%2Fwikidex%2Fthumb%2Fb%2Fbe%2Flatest%2F20160309230456%2FVenusaur.png%2F1200px-Venusaur.png&f=1&nofb=1&ipt=1e37455f3c7dba08c04c4b41a2b2800365a5dc8d37d4dbb52abf6a0e2c588167&ipo=images"
+  },
+  {
+    "id": "3af23286-b02f-4f78-888e-079a74a963b5",
+    "nome": "Charizard",
+    "descricao": "Pokémon de Fogo",
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Forig00.deviantart.net%2F5ee8%2Ff%2F2016%2F111%2Fa%2Ff%2F006_charizard_by_tzblacktd-d9zrz7d.png&f=1&nofb=1&ipt=61078c531b0713ccc850ec290b9bb91a473469e5224c8be7413286894deb2c75&ipo=images"
+  },
+  {
+    "id": "4e4f0702-f24c-4522-84fe-4008ad468724",
+    "nome": "Mew",
+    "descricao": "Pokémon Psíquico",
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fes.pokemon%2Fimages%2Fb%2Fbf%2FMew.png%2Frevision%2Flatest%3Fcb%3D20160311010530&f=1&nofb=1&ipt=e3e834bf0152326d06c0b240c12b9b2ad08285a5b198706e5470c5d68713e2f9&ipo=images"
+  },
+  {
+    "id": "346bc1d3-ded9-4d1a-a33c-3df124edb196",
+    "nome": "Mewtwo",
+    "descricao": "Pokémon Psíquico 151",
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fes.pokemon%2Fimages%2Fd%2Fd3%2FMewtwo.png%2Frevision%2Flatest%3Fcb%3D20150621180327&f=1&nofb=1&ipt=c2e614cbcbcadf13e5287692a6738dd984ef558191b258d56300ed7693f0e1eb&ipo=images"
+  }
+]
