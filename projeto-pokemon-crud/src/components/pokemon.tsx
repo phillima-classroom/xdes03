@@ -7,6 +7,7 @@ import path from "path";
 import { redirect } from "next/navigation";
 
 import '@/styles/Pokemon.css';
+import ConexaoBD from "@/utils/conexao-bd";
 
 const dbPath = 
     path.join(process.cwd(),'src','db','pokemon-db.json');
@@ -18,24 +19,28 @@ export interface PokemonFavProps{
         descricao: string
 }
 
+const arquivo = 'pokemon-db.json';
+
 export default async function PokemonFav(props: PokemonFavProps){
 
     const deletePokemon = async (formData: FormData) =>{
         'use server';
 
-        const file = await fs.readFile(`${dbPath}`,'utf8');
-        const data = JSON.parse(file);
+        // const file = await fs.readFile(`${dbPath}`,'utf8');
+        // const data = JSON.parse(file);
     
         const id = props.id;
 
         const acharIndex = (p) => {
             return p.id === id
         }
-    
-        const index = data.findIndex(acharIndex);
         
-        data.splice(index,1);
-        await fs.writeFile(dbPath,JSON.stringify(data,null,2));
+        const pokemonDB = await ConexaoBD.retornaBD(arquivo)
+
+        const index = pokemonDB.findIndex(acharIndex);
+        
+        pokemonDB.splice(index,1);
+        await ConexaoBD.armazenaBD(arquivo,pokemonDB);
 
         redirect('/main/listar');
 

@@ -5,10 +5,11 @@ import Image from "next/image";
 import userIcon from "public/user.png";
 import passwordIcon from "public/padlock.png";
 import pokeLogo from "public/pokemon-logo.png";
+import Autenticacao from "@/utils/auth";
 
 export default function Login(){
     return(
-    <form className="login-form">
+    <form className="login-form" action={Autenticacao.login}>
         <div>
             <Image className="form-image" src={pokeLogo} alt="pokémon logo" />
         </div>
