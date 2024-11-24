@@ -18,8 +18,7 @@ export default function Header(){
             </section>
             <nav className='nav'>
             <ul className='ul-left-side'>
-                <Link className="link" href="/create">Criar</Link>
-                <Link className="link" href="/login">Login</Link>
+                <Link className="link" href="/main/listar">Listar Pokémons</Link>
             </ul>
             </nav>
         </header>
