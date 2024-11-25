@@ -27,7 +27,7 @@ export default function Login(){
                
         <button>Entrar</button>
 
-        <Link id="link-cadastrar" href="/create">Não tem cadastro?</Link>
+        <Link id="link-cadastrar" href="/user/create">Não tem cadastro?</Link>
     </form>
     );
 }

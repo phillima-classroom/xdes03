@@ -20,7 +20,6 @@ async function createSessionToken(payload = {}){
     const {exp} = await openSessionToken(session);
 
     const cookieStore = await cookies();
-    console.log(session, 'aaaaaaaaaaaaaaaa');
     cookieStore.set('session', session, {
         expires: (exp as number) * 1000,
         path: '/',
@@ -28,9 +27,25 @@ async function createSessionToken(payload = {}){
     });
 }
 
+async function isSessionValid(){
+    const sessionCookie = (await cookies()).get('session');
+
+    if(sessionCookie)
+    {
+        const {value} = sessionCookie;
+        const {exp} = await openSessionToken(value);
+        const currentDate = new Date().getTime();
+
+        return ((exp as number) * 1000) > currentDate;
+    }
+
+    return false;
+}
+
 const AuthTokenServices = {
     openSessionToken,
-    createSessionToken
+    createSessionToken,
+    isSessionValid
 }
 
 export default AuthTokenServices;
