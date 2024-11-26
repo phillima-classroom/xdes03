@@ -3,7 +3,7 @@
 //Caso a session seja inválida (buscamos no cookie) o user é redirecionado para a página de login
 
 import { NextRequest, NextResponse } from "next/server";
-import AuthTokenServices from "./utils/auth";
+import {isSessionValid} from "./utils/auth";
 
 //Esse "matcher" se encontra na própria documentação do next e serve para filtrar arquivos que não devem ser afetados
 export const config = {
@@ -26,7 +26,7 @@ export async function middleware(req: NextRequest){
     }
 
     //validar a session no arquivo "auth.ts".
-    const session = await AuthTokenServices.isSessionValid();
+    const session = await isSessionValid();
     //Caso não exista session, redirecionar para a página de login
     if(!session){
         return NextResponse.redirect(new URL('/user/login', req.url));

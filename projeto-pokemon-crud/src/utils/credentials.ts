@@ -4,7 +4,8 @@ import { redirect } from "next/navigation";
 import * as bcrypt from 'bcrypt'; //lib usada para armazenar a senha criptografada: npm i bcrypt
 import crypto from 'crypto';
 import ConexaoBD from "./conexao-bd";
-import AuthTokenServices from "./auth";
+import {createSessionToken, deleteToken} from "@/utils/auth";
+import { boolean } from "zod";
 
 const arquivo = 'usuarios-db.json';
 
@@ -12,6 +13,7 @@ export interface LoginCredentials{
     email: string,
     password: string
 }
+
 
 export async function createUser(data: LoginCredentials){   
 
@@ -62,7 +64,7 @@ export async function login(data: LoginCredentials) {
 
     if(isMatch)
     {
-        await AuthTokenServices.createSessionToken({sub: user.id, email: user.email});
+        await createSessionToken({sub: user.id, email: user.email});
         redirect('/main/listar');
     }else{
         return {error: 'Usuário ou senhas incorretos'}

@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <main>
         <h1>Entre no Mundo Pokémon e Colecione Todos.<br/> Gotta Catch 'Em All</h1>
-        <Link href={"/main/login"} className='link-conhecer' >Clique e Venha Conhecer</Link>
+        <Link href={"/user/login"} className='link-conhecer' >Clique e Venha Conhecer</Link>
       </main>
     </>
   );

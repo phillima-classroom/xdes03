@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 //Para ler arquivos com nextjs
-import {promises as fs} from 'fs';
 import path from "path";
 import { redirect } from "next/navigation";
 
@@ -43,6 +42,7 @@ export default async function PokemonFav(props: PokemonFavProps){
         await ConexaoBD.armazenaBD(arquivo,pokemonDB);
 
         redirect('/main/listar');
+        
 
     }
 
