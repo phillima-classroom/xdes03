@@ -1,16 +1,24 @@
+'use server';
+
 import { redirect } from "next/navigation";
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt'; //lib usada para armazenar a senha criptografada: npm i bcrypt
 import crypto from 'crypto';
 import ConexaoBD from "./conexao-bd";
 import AuthTokenServices from "./auth-services";
 
 const arquivo = 'usuarios-db.json';
 
-async function createAccount(formData: FormData){   
-    'use server';
+export interface LoginCredentials{
+    email: string,
+    password: string
+}
 
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
+export async function createUser(data: LoginCredentials){   
+
+    const email = (data.email as string).trim();
+    const password = data.password as string;
+
+    console.log(data);
 
     const passwordCrypt = await bcrypt.hash(password,10);
     
@@ -20,32 +28,35 @@ async function createAccount(formData: FormData){
         password: passwordCrypt
     }
 
-    //Manipula BD
+    //Busca a base de usuários
     const usuariosBD = await ConexaoBD.retornaBD(arquivo);
+    //Verifica se usuário já existe
+    for (const user of usuariosBD) {
+        //Aqui usamos o for..of pois é sequencial
+        if(user.email === email){
+            return {error: 'Usuário ou senha incorretos'}; //Ao invés de informar "usuário já encontrado"
+        }
+    }
+    //Nenhum user encontrado. Pode adicionar o novo no banco
     usuariosBD.push(novoUser);
     await ConexaoBD.armazenaBD(arquivo,usuariosBD);
-    
-    redirect('/user/login');
+    redirect('/user/login');//redireciona para a página de login
 }
 
-async function login(formData: FormData) {
+export async function login(data: LoginCredentials) {
     
-    'use server';
 
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
+    const email = data.email;
+    const password = data.password;
 
     //Manipula BD
     const usuariosBD = await ConexaoBD.retornaBD(arquivo);
     
     const user = usuariosBD.find(user => user.email === email);
 
-    //optimisti update informar user
-
     if(!user)
     {
-        console.log('user nao existe');
-        redirect('/user/login');
+        return {error: 'Usuário não encontrado'}
     }
     const isMatch = await bcrypt.compare(password, user.password);
 
@@ -54,14 +65,6 @@ async function login(formData: FormData) {
         await AuthTokenServices.createSessionToken({sub: user.id, email: user.email});
         redirect('/main/listar');
     }else{
-        console.log('email ou senha invalido');
-        redirect('/user/login');
+        return {error: 'Usuário ou senhas incorretos'}
     }
 }
-
-const Autenticacao = {
-    createAccount,
-    login
-}
-
-export default Autenticacao;
