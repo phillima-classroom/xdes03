@@ -1,70 +1,54 @@
-'use server';
+import * as jose from 'jose'; //npm i jose. A lib é um wrapper do JWT. Também é necessário instala, npm i jsonwebtoken
+import { cookies } from 'next/headers';
 
-import { redirect } from "next/navigation";
-import * as bcrypt from 'bcrypt'; //lib usada para armazenar a senha criptografada: npm i bcrypt
-import crypto from 'crypto';
-import ConexaoBD from "./conexao-bd";
-import AuthTokenServices from "./auth-services";
+async function openSessionToken(token: string){
+    const secret = new TextEncoder().encode(process.env.TOKEN);
+    const {payload} = await jose.jwtVerify(token, secret);
 
-const arquivo = 'usuarios-db.json';
-
-export interface LoginCredentials{
-    email: string,
-    password: string
+    return payload;
 }
 
-export async function createUser(data: LoginCredentials){   
 
-    const email = (data.email as string).trim();
-    const password = data.password as string;
+async function createSessionToken(payload = {}){
+    const secret = new TextEncoder().encode(process.env.TOKEN); 
+    const session = await new jose.SignJWT(payload).setProtectedHeader({
+        alg: 'HS256'
+    })
+    .setExpirationTime('1h')
+    .sign(secret);
 
-    console.log(data);
+    const {exp} = await openSessionToken(session);
 
-    const passwordCrypt = await bcrypt.hash(password,10);
+    //Seguindo a documentação do next, precisamos primeiro criar o cookieStore, pois é async
+    const cookieStore = await cookies();
     
-    const novoUser = {
-        id: crypto.randomUUID(),
-        email,
-        password: passwordCrypt
-    }
-
-    //Busca a base de usuários
-    const usuariosBD = await ConexaoBD.retornaBD(arquivo);
-    //Verifica se usuário já existe
-    for (const user of usuariosBD) {
-        //Aqui usamos o for..of pois é sequencial
-        if(user.email === email){
-            return {error: 'Usuário ou senha incorretos'}; //Ao invés de informar "usuário já encontrado"
-        }
-    }
-    //Nenhum user encontrado. Pode adicionar o novo no banco
-    usuariosBD.push(novoUser);
-    await ConexaoBD.armazenaBD(arquivo,usuariosBD);
-    redirect('/user/login');//redireciona para a página de login
+    //Através da cookieStore conseguimos buscar (get) e salvar (set) cookies no navegador.
+    cookieStore.set('session', session, {
+        expires: (exp as number) * 1000,
+        path: '/',
+        httpOnly: true
+    });
 }
 
-export async function login(data: LoginCredentials) {
-    
+async function isSessionValid(){
+    const sessionCookie = (await cookies()).get('session');
 
-    const email = data.email;
-    const password = data.password;
-
-    //Manipula BD
-    const usuariosBD = await ConexaoBD.retornaBD(arquivo);
-    
-    const user = usuariosBD.find(user => user.email === email);
-
-    if(!user)
+    if(sessionCookie)
     {
-        return {error: 'Usuário não encontrado'}
-    }
-    const isMatch = await bcrypt.compare(password, user.password);
+        const {value} = sessionCookie;
+        const {exp} = await openSessionToken(value);
+        const currentDate = new Date().getTime();
 
-    if(isMatch)
-    {
-        await AuthTokenServices.createSessionToken({sub: user.id, email: user.email});
-        redirect('/main/listar');
-    }else{
-        return {error: 'Usuário ou senhas incorretos'}
+        return ((exp as number) * 1000) > currentDate;
     }
+
+    return false;
 }
+
+const AuthTokenServices = {
+    openSessionToken,
+    createSessionToken,
+    isSessionValid
+}
+
+export default AuthTokenServices;

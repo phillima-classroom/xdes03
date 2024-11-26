@@ -8,10 +8,10 @@ import Image from "next/image";
 import userIcon from "public/user.png";
 import passwordIcon from "public/padlock.png";
 import pokeLogo from "public/pokemon-logo.png";
-import {login} from "@/utils/auth";
+import {login} from "@/utils/credentials";
 import {z} from "zod"; //import do zod para apoio nas validações do front: npm i zod 
 import toast from 'react-hot-toast'; //import do react-hot-toast:  npm i react-hot-toast
-import { LoginCredentials } from '@/utils/auth';
+import { LoginCredentials } from '@/utils/credentials';
 
 //Criação do schema para colocarmos as regras de validação do zod para os campos de login
 const LoginSchema = z.object({
@@ -68,7 +68,7 @@ export default function LoginForm(){
                 </section>
             </div>
             <button>Entrar</button>
-            <Link id="link-cadastrar" href="/user/create">Não tem cadastro?</Link>
+            <Link id="link-cadastrar" href="/user/create">Não tem cadastro? Clique aqui</Link>
     
         </form>
     )
