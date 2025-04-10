@@ -2,34 +2,33 @@ import Link from "next/link";
 
 import '@/styles/CreatePokemon.css';
 
-//Para ler arquivos com nextjs
-import {promises as fs} from 'fs';
-import path from "path";
+
 import { redirect } from "next/navigation";
 
 import crypto from 'crypto';
+import ConexaoBD from "@/utils/conexao-bd";
 
-const dbPath = 
-    path.join(process.cwd(),'src','db','pokemon-db.json');
+const arquivo = 'pokemon-db.json';
 
 //Marcar o componente como async para "server component"
 export default async function CreatePokemon(){
 
-    const file = await fs.readFile(`${dbPath}`,'utf8');
-    const data = JSON.parse(file);
-
     //Server Action. Só irá executar no servidor
     const addPokemon = async (formData: FormData) => {
         "use server";
-        data.push(
+
+        const novoPokemon =
             {
                 id: crypto.randomUUID(),
                 nome : formData.get("nome"),
                 descricao : formData.get("descricao"),
                 img : formData.get("img")
             }
-        )
-        await fs.writeFile(dbPath,JSON.stringify(data,null,2));
+        
+        const pokemonDB = await ConexaoBD.retornaBD(arquivo);
+        pokemonDB.push(novoPokemon);
+        await ConexaoBD.armazenaBD(arquivo,pokemonDB);
+        
         redirect('/main/listar');
     }
 

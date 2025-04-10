@@ -6,13 +6,15 @@ h1{
     line-height: 4rem;
 }
 
-/* main{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-} */
-
 footer{
     font-size: 2rem;
+    text-align: center;
+}
+.link-conhecer{
+    color: gray;
+    font-size: 2rem;
+    margin: 2% auto;
+    width: 40%;
+    display: block;
     text-align: center;
 }

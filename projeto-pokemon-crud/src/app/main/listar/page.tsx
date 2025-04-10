@@ -6,15 +6,13 @@ import path from "path";
 import PokemonFav, { PokemonFavProps } from "@/components/pokemon";
 
 import '@/styles/ListPokemon.css';
+import ConexaoBD from "@/utils/conexao-bd";
 
-const dbPath = 
-    path.join(process.cwd(),'src','db','pokemon-db.json');
+const arquivo = 'pokemon-db.json';
 
 export default async function Listar() {
 
-    const file = await fs.readFile(`${dbPath}`,'utf8');
-    const pokemonsDb = JSON.parse(file);
-
+    const pokemonsDb = await ConexaoBD.retornaBD(arquivo);
     const pokemonsMapped = 
             pokemonsDb.map((pokemon: PokemonFavProps) => {
                 return <PokemonFav {...pokemon}/>

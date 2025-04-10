@@ -1,10 +1,12 @@
+
 import pokeLogo from 'public/pokemon-logo.png';
 import Image from 'next/image'
-import Link from 'next/link';
 
 import "@/styles/Header.css";
+import React from 'react';
 
-export default function Header(){
+export default async function Header(){
+
     return(
         <header>
             <section className='section'>
@@ -17,9 +19,6 @@ export default function Header(){
             </nav>
             </section>
             <nav className='nav'>
-            <ul className='ul-left-side'>
-                <Link className="link" href="/main/listar">Listar Pokémons</Link>
-            </ul>
             </nav>
         </header>
     )
