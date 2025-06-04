@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 //Essa função retorna o token descriptografado. A função "jwtVerify"
 async function openSessionToken(token: string){
     //Para que isso funcione é necessário criar o arquivo oculto ".env"
-    //Coloque uma chave "TOKEN" e gera um valor aleatório para ela
+    //Coloque uma chave "TOKEN" e um valor aleatório para ela
     //Por exemplo pode usar o próprio node para isso diretamente no terminal. require('crypto').randomBytes(64).toString('hex').
     //Para acessar o terminal "node", digite "node".
     //Para retornar ao terminal bash, digite ".exit"

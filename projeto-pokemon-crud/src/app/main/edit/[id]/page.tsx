@@ -1,9 +1,9 @@
-import '@/styles/CreatePokemon.css';
+import '@/app/styles/CreatePokemon.css';
 
 //Para ler arquivos com nextjs
 import {promises as fs} from 'fs';
 import path from "path";
-import PokemonFav, { PokemonFavProps } from "@/components/pokemon";
+import PokemonFav, { PokemonFavProps } from "@/app/ui/pokemon";
 import { notFound, redirect } from "next/navigation";
 import Image from "next/image";
 
@@ -45,10 +45,10 @@ export default async function Edit(props: EditPokemonProps){
         const index = data.findIndex(acharIndex);
         
         data.splice(index,1,updatedPokemon);
-        console.log(data);
+
         await fs.writeFile(dbPath,JSON.stringify(data,null,2));
 
-        redirect('/main/listar');
+        redirect('/main/list');
 
     }
 

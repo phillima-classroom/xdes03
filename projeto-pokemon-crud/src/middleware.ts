@@ -3,7 +3,7 @@
 //Caso a session seja inválida (buscamos no cookie) o user é redirecionado para a página de login
 
 import { NextRequest, NextResponse } from "next/server";
-import {isSessionValid} from "./utils/auth";
+import {isSessionValid} from "@/app/lib/auth";
 
 //Esse "matcher" se encontra na própria documentação do next e serve para filtrar arquivos que não devem ser afetados
 export const config = {

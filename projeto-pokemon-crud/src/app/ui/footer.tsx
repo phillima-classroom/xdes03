@@ -5,7 +5,7 @@ import pikachu from 'public/pikachu.jpg';
 import mew from 'public/mew.jpg';
 import Image from 'next/image';
 
-import "@/styles/Footer.css";
+import "@/app/styles/Footer.css";
 export default function Footer(){
     return(
         <footer className='footer'>

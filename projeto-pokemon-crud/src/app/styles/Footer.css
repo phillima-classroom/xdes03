@@ -9,9 +9,13 @@
     }
 }
 
-footer{
+/* footer{
     height: 20vh;
     position:absolute;
         width:100%;
         bottom:0px;
+} */
+
+footer{
+    margin-top: auto;
 }

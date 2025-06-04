@@ -1,6 +1,6 @@
 "use client";
 
-import '@/styles/Login.css';
+import '@/app/styles/Login.css';
 
 import Link from "next/link";
 import Image from "next/image";
@@ -8,10 +8,10 @@ import Image from "next/image";
 import userIcon from "public/user.png";
 import passwordIcon from "public/padlock.png";
 import pokeLogo from "public/pokemon-logo.png";
-import {login} from "@/utils/credentials";
+import {login} from "@/app/lib/credentials";
 import {z} from "zod"; //import do zod para apoio nas validações do front: npm i zod 
 import toast from 'react-hot-toast'; //import do react-hot-toast:  npm i react-hot-toast
-import { LoginCredentials } from '@/utils/credentials';
+import { LoginCredentials } from '@/app/lib/credentials';
 
 //Criação do schema para colocarmos as regras de validação do zod para os campos de login
 const LoginSchema = z.object({

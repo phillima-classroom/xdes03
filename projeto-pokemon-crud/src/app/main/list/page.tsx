@@ -3,16 +3,17 @@ import Link from "next/link";
 //Para ler arquivos com nextjs
 import {promises as fs} from 'fs';
 import path from "path";
-import PokemonFav, { PokemonFavProps } from "@/components/pokemon";
+import PokemonFav, { PokemonFavProps } from "@/app/ui/pokemon";
 
-import '@/styles/ListPokemon.css';
-import ConexaoBD from "@/utils/conexao-bd";
+import '@/app/styles/ListPokemon.css';
+import ConexaoBD from "@/app/lib/conexao-bd";
 
 const arquivo = 'pokemon-db.json';
 
 export default async function Listar() {
 
     const pokemonsDb = await ConexaoBD.retornaBD(arquivo);
+
     const pokemonsMapped = 
             pokemonsDb.map((pokemon: PokemonFavProps) => {
                 return <PokemonFav {...pokemon}/>

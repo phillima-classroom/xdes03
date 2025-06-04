@@ -1,4 +1,4 @@
-import CreateUserForm from "@/components/form-create";
+import CreateUserForm from "@/app/ui/form-create";
 
 
 export default function Create() {

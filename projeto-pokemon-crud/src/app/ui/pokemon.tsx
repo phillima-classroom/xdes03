@@ -5,8 +5,8 @@ import Link from "next/link";
 import path from "path";
 import { redirect } from "next/navigation";
 
-import '@/styles/Pokemon.css';
-import ConexaoBD from "@/utils/conexao-bd";
+import '@/app/styles/Pokemon.css';
+import ConexaoBD from "@/app/lib/conexao-bd";
 
 const dbPath = 
     path.join(process.cwd(),'src','db','pokemon-db.json');
@@ -27,8 +27,9 @@ export default async function PokemonFav(props: PokemonFavProps){
 
         // const file = await fs.readFile(`${dbPath}`,'utf8');
         // const data = JSON.parse(file);
-    
-        const id = props.id;
+
+        const id = formData.get('pokemon-id');
+        
 
         const acharIndex = (p) => {
             return p.id === id
@@ -41,7 +42,7 @@ export default async function PokemonFav(props: PokemonFavProps){
         pokemonDB.splice(index,1);
         await ConexaoBD.armazenaBD(arquivo,pokemonDB);
 
-        redirect('/main/listar');
+        redirect('/main/list');
         
 
     }
@@ -59,6 +60,7 @@ export default async function PokemonFav(props: PokemonFavProps){
                 <Link href={`/main/edit/${props.id}`} className="edit-pokemon">Editar</Link>
                 <form action={deletePokemon}>
                     <button>Remover</button>
+                    <input value={props.id} name="pokemon-id" hidden/>
                 </form>
             </section>
             

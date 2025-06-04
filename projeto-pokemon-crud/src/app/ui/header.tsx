@@ -2,7 +2,7 @@
 import pokeLogo from 'public/pokemon-logo.png';
 import Image from 'next/image'
 
-import "@/styles/Header.css";
+import "@/app/styles/Header.css";
 import React from 'react';
 
 export default async function Header(){

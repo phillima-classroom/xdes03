@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-import '@/styles/CreatePokemon.css';
+import '@/app/styles/CreatePokemon.css';
 
 
 import { redirect } from "next/navigation";
 
 import crypto from 'crypto';
-import ConexaoBD from "@/utils/conexao-bd";
+import ConexaoBD from "@/app/lib/conexao-bd";
 
 const arquivo = 'pokemon-db.json';
 
@@ -29,7 +29,7 @@ export default async function CreatePokemon(){
         pokemonDB.push(novoPokemon);
         await ConexaoBD.armazenaBD(arquivo,pokemonDB);
         
-        redirect('/main/listar');
+        redirect('/main/list');
     }
 
     return(

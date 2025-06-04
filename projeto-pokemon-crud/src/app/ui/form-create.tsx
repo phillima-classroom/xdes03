@@ -7,8 +7,8 @@ import userIcon from "public/user.png";
 import passwordIcon from "public/padlock.png";
 import pokeLogo from "public/pokemon-logo.png";
 
-import '@/styles/Login.css';
-import {createUser, LoginCredentials} from "@/utils/credentials";
+import '@/app/styles/Login.css';
+import {createUser, LoginCredentials} from "@/app/lib/credentials";
 import {z} from "zod"; //import do zod para apoio nas validações do front: npm i zod 
 import toast from 'react-hot-toast'; //import do react-hot-toast:  npm i react-hot-toast
 

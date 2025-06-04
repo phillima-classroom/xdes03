@@ -1,5 +1,3 @@
-'user server';
-
 //Para ler arquivos com nextjs
 import {promises as fs} from 'fs';
 import path from "path";
