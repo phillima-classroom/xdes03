@@ -14,7 +14,12 @@ export default function Pokemon(props: PokemonProps)
     return(
         <div className="pokemonCard">
             <h2>{props.nome}</h2>
-            <img src={props.img} alt="Imagem de um pokémon"/>
+            <Image
+                src={props.img}
+                width={200}
+                height={200}
+                alt={`Imagem do pokémon ${props.nome}`}
+            />
             <p>{props.descricao}</p>
         </div>
     )

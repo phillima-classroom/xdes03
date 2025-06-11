@@ -28,5 +28,23 @@
     "nome": "Mew",
     "descricao": "Pokemon Psiquico ",
     "img": "https://archives.bulbagarden.net/media/upload/thumb/9/9a/0151Mew.png/375px-0151Mew.png"
+  },
+  {
+    "id": "8a9989fc-c134-44f5-9cf2-5241587efc25",
+    "nome": "Squirtle",
+    "descricao": "Pokémon de Água",
+    "img": "https://tse3.mm.bing.net/th/id/OIP.feSPmUDsUQ9fVAWa6WWVuAHaG1?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "432fe4a8-ce0d-4714-8784-0902b11848d2",
+    "nome": "Charmander",
+    "descricao": "Pokémon de Fogo Inicial",
+    "img": "https://th.bing.com/th/id/R.c1a54158f572dff7bf889ad9676e2f36?rik=n6STui7jVk2WIA&riu=http%3a%2f%2forig13.deviantart.net%2fd44b%2ff%2f2011%2f120%2f8%2f6%2fpokemon___charmander_by_lilnutta10-d2vr4ov.jpg&ehk=IWYVjIUHHVaUQuKkpMRPJr9U7n794fpmWIHi%2fsZec%2fo%3d&risl=&pid=ImgRaw&r=0"
+  },
+  {
+    "id": "84f26a62-c162-448c-8e24-bc0ed31ab35e",
+    "nome": "Bulbasaur",
+    "descricao": "Pokémon de Planta Inicial",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/85a954df-43b3-4b66-9e8d-94fe01b0451f/d9zfx5e-2061d549-0056-4e27-8103-9ba791eaea55.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg1YTk1NGRmLTQzYjMtNGI2Ni05ZThkLTk0ZmUwMWIwNDUxZlwvZDl6Zng1ZS0yMDYxZDU0OS0wMDU2LTRlMjctODEwMy05YmE3OTFlYWVhNTUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.T3CE0g8t41AO79dbdJNRJCnFFZvcaP32PZJhsKqy2zE"
   }
 ]

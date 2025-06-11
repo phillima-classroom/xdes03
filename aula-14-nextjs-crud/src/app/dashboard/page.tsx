@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ConexaoBD from "../libs/conexao-bd";
 import Pokemon from "../ui/pokemon-card";
 import "@/app/styles/dashboard.css";
@@ -13,8 +14,11 @@ export default async function DisplayPokemons(){
     });
 
     return(
-        <div className="cardContainer">
-            {pokemons}
+        <div className="dashboard-container">
+            <Link href={'/dashboard/create'} className="add-pokemon">Adicionar</Link>
+            <div className="cardContainer">
+                {pokemons}
+            </div>
         </div>
         
     )
