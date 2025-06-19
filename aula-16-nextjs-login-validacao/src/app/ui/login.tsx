@@ -11,6 +11,8 @@ import { redirect } from 'next/navigation';
 import z from 'zod';
 import toast from 'react-hot-toast';
 import { validateCredentials } from '../libs/credentials';
+import Link from 'next/link';
+import { useState } from 'react';
 
 
 export interface LoginCredentials {
@@ -86,6 +88,9 @@ export default function LoginForm(){
                 </section>
             </div>
             <button>Entrar</button>
+            <div className='link-cadastrar'>
+                Não tem conta? Clique <Link href="/user">aqui</Link>
+            </div>
         </form>
     )
 }

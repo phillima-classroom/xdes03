@@ -1,16 +1,7 @@
-import Image from "next/image";
 import "@/app/page.css";
-import Pokemon, { PokemonProps } from "./ui/pokemon-card";
-import Link from "next/link";
 import LoginForm from "./ui/login";
 
 
-const dados: PokemonProps = {
-  nome : '',
-  descricao: '',
-  img : '',
-  id: '' 
-}
 
 export default function Home() {
   return (
