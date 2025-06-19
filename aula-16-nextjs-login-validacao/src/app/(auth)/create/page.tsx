@@ -6,10 +6,12 @@ import passwordIcon from "public/padlock.png";
 import pokeLogo from "public/pokemon-logo.png";
 
 import '@/app/styles/login.css';
-import z from "zod"; //import do zod para apoio nas validações do front: npm i zod 
+import {z} from "zod"; //import do zod para apoio nas validações do front: npm i zod 
 import toast from 'react-hot-toast'; //import do react-hot-toast:  npm i react-hot-toast
-import { createUser } from "../libs/credentials";
-import { LoginCredentials } from "../ui/login";
+import { createUser } from "@/app/libs/credentials";
+import { LoginCredentials } from "../login/page";
+import { redirect } from "next/navigation";
+
 
 //Criação do schema para colocarmos as regras de validação do zod para os campos de createUser
 //Retirado diretamente da documentação do "zod" em https://zod.dev/
@@ -51,13 +53,14 @@ export default function CreateUser(){
 
         const retorno = await createUser(createUserData as LoginCredentials);
 
-        if(retorno){
+        if(retorno.error){
             toast.error(retorno.error);
             return;
+        }else if(retorno.success){
+            toast.success(retorno.success);
+            redirect('/login');
         }
-
     }
-
         
 
     return(

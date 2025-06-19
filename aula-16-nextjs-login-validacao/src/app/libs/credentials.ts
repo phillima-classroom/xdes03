@@ -1,12 +1,10 @@
 'use server';
 
 import { redirect } from "next/navigation";
-import { LoginCredentials } from "../ui/login";
 import ConexaoBD from "./conexao-bd";
 
-import  bcrypt from 'bcrypt';
-import { RedirectType } from "next/navigation";
-import toast from "react-hot-toast";
+import bcrypt from 'bcrypt'; //Para criptografar a senha. npm i bcrypt
+import { LoginCredentials } from "../(auth)/login/page";
 
 const userDBFile = 'usuarios-db.json';
 
@@ -33,8 +31,8 @@ export async function createUser(data: LoginCredentials){
     }
     users.push(novoUser);
     ConexaoBD.armazenaBD(userDBFile,users);
-    toast.success('Usuário criado com sucesso!');
-    redirect('/');
+    return {success: 'Usuário Criado com Sucesso'}
+
 }
 
 export async function validateCredentials(data: LoginCredentials){

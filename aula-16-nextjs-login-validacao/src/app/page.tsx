@@ -1,13 +1,6 @@
 import "@/app/page.css";
-import LoginForm from "./ui/login";
-
-
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <main>
-        <h1>Bem vindo ao Mundo Pokémon</h1>
-        <LoginForm />
-    </main>
-  );
+  redirect('/login');
 }

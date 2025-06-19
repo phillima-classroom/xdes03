@@ -22,7 +22,6 @@ export default function CreatePokemon(){
         const pokemonDb = await ConexaoBD.retornaBD(arquivo);
         pokemonDb.push(novoPokemon);
         await ConexaoBD.armazenaBD(arquivo,pokemonDb);
-
         redirect('/dashboard');
     }
 
