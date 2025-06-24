@@ -51,7 +51,7 @@ export async function validateCredentials(data: LoginCredentials){
 
     if(isMatch)
     {
-        await createSessionToken({sub: user.id, email: user.email});
+        await createSessionToken(user.id, user.email);
         redirect('/dashboard');
     }
     else{

@@ -2,6 +2,7 @@ header{
     background-color: rgb(15, 132, 248);
     display: flex;
     justify-content: space-between;
+    
     height: 10vh;
     .section{
         display: flex;
@@ -42,6 +43,7 @@ header{
     .link:hover{
         background-color: rgb(74, 167, 248);
     }
+
 }
 
 
