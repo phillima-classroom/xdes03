@@ -64,3 +64,9 @@
     color: black;
     margin-top: 5%;
 }
+
+.btn-criar-conta{
+    text-decoration: underline black 1.2px;
+    color: darkslateblue;
+    font-weight: bold;
+}
